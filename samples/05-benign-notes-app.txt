@@ -1,0 +1,15 @@
+QuietNotes Privacy Policy
+
+QuietNotes is a note-taking app that stores your notes only on your own device.
+
+We do not collect any personal information. We do not have accounts, and we cannot see your notes.
+
+The app does not contain analytics, advertising, or tracking of any kind, and it makes no network requests except to check for updates, which sends only the app version number.
+
+If you choose to back up your notes, they are encrypted on your device before they are saved to the cloud storage service you pick. We cannot read your backups.
+
+You can delete all your data at any time by deleting the app.
+
+If this policy ever changes, the new version will be shown in the app and you will be asked to accept it before continuing.
+
+Questions? Email privacy@quietnotes.example.

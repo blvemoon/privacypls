@@ -1,0 +1,13 @@
+PulseBand Privacy Notice
+
+PulseBand helps you understand your health. To do that, we collect a lot of information about you.
+
+Health and biometric data. Our devices collect your heart rate, blood oxygen, sleep patterns, menstrual cycle information, and fingerprint data used to unlock the band. We also collect your precise GPS location throughout the day, even when the app is closed.
+
+Who we share it with. We share health and location data with our insurance and wellness partners, who may use it to offer you products or adjust pricing. We may also share aggregated and individual data with research partners.
+
+International transfers. Your data may be transferred to and stored on servers in any country where we or our partners operate.
+
+Deleting your data. To request deletion of your account, you must mail a signed, notarized letter to our legal department. Requests are processed within 180 days, and some information may be kept indefinitely in backups.
+
+Consent. By wearing a PulseBand device, you consent to all of the data practices described in this notice.
