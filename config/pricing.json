@@ -1,0 +1,16 @@
+{
+  "_note": "USD per million tokens. Checked against third-party reports of Anthropic's pricing page on Nov 12, 2026. Verify at https://platform.claude.com/docs/en/about-claude/pricing and update if prices change. Haiku 5.5 charges a higher rate for the WHOLE request when the prompt is over 100,000 tokens.",
+  "models": {
+    "claude-haiku-5-5": {
+      "input": 0.10,
+      "output": 0.50,
+      "longPromptThreshold": 100000,
+      "longPromptInput": 0.50,
+      "longPromptOutput": 2.50
+    },
+    "claude-sonnet-5-5": {
+      "input": 2.00,
+      "output": 10.00
+    }
+  }
+}
