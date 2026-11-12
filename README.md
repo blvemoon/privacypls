@@ -2,7 +2,7 @@
 
 A small web app that reads a privacy policy or terms of service (from a link or pasted text) and flags potentially concerning language. Every flag comes with the exact quote it's based on, a plain-language explanation, a severity, and a confidence level. Results are AI-generated potential flags, not legal advice.
 
-Built with Next.js on Vercel, Claude (Anthropic) for analysis, and Upstash Redis for the spending limit and rate limiting.
+Built with Next.js on Vercel, Claude (Anthropic) for analysis, Upstash Redis for the spending limit and rate limiting, and Vercel Web Analytics for cookie-free visit counts.
 
 - **Plan and design decisions:** [PLAN.md](PLAN.md)
 - **Deploying to Vercel:** [docs/DEPLOY.md](docs/DEPLOY.md)
@@ -102,7 +102,7 @@ Rules live in [`config/rules.json`](config/rules.json). Each rule has:
 - Redis holds only: hashed visitor IDs (expire after the waiting period), used bot-check answers (about 10 minutes), counters, and daily totals of analyses, tokens, and cost.
 - No cookies. The theme choice is stored in the visitor's own browser.
 - Vercel and Upstash keep their own standard infrastructure records; the privacy page says so and links to their policies.
-- No analytics yet. Update the privacy page before adding any (Milestone 3).
+- Vercel Web Analytics counts page views without cookies. Page addresses are sent without anything after `?` or `#`, and submitted text and links are never part of a page view. Turn it on in Vercel → Analytics (DEPLOY.md step 4b).
 
 If you change what the app does, update `app/privacy/page.js` and `PRIVACY_LAST_UPDATED` to match.
 
@@ -129,7 +129,7 @@ proxy.js      Security policy for every page (Next.js 16 name for "middleware")
 - [ ] Monthly limit tested on a preview (set `MONTHLY_BUDGET_USD` very low, check the message, set it back)
 - [ ] Bot check on, and `ACCESS_PASSWORD` removed when going public
 - [ ] Health check monitored by an uptime service
-- [ ] Analytics working (Milestone 3), and the privacy page updated to name the provider
+- [ ] Vercel Web Analytics enabled and showing visits (the privacy page already names it)
 - [ ] Donation link set (or intentionally empty)
 - [ ] Privacy policy page live, linked from the footer and near the input box, and reviewed
 - [ ] The site's own privacy policy run through the tool, with no High-severity flags

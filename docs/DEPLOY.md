@@ -50,6 +50,15 @@ The full list of optional settings is in the README.
 - Run one analysis on pasted text, and one on a link.
 - Run a second analysis straight away. You should see the "Please wait a moment" dialog with a countdown.
 
+## 4b. Turn on Web Analytics
+
+The site already includes Vercel Web Analytics (cookie-free page-view counts). It only starts collecting once you switch it on:
+
+1. Project → **Analytics** → **Enable**.
+2. Visit your site once, then check the Analytics tab after a minute or two.
+
+Hobby includes 50,000 events a month (each page view is one event). If that runs out, collection pauses until the next month; the site itself keeps working. Custom events (like counting analyses) are a Pro-plan feature. The app's own `npm run usage` already counts analyses.
+
 ## 5. Firewall rule (limits raw request floods)
 
 Hobby allows one rate-limit rule. The app does the fine-grained limiting; this rule stops floods before they reach it.

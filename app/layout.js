@@ -1,5 +1,6 @@
 import { headers } from 'next/headers';
 import { siteConfig } from '../lib/siteConfig.js';
+import SiteAnalytics from './components/SiteAnalytics.js';
 import './globals.css';
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default async function RootLayout({ children }) {
             <p className="fine">Results are AI-generated potential flags, not legal advice.</p>
           </div>
         </footer>
+        <SiteAnalytics />
       </body>
     </html>
   );

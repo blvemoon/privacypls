@@ -12,8 +12,8 @@ export default function PrivacyPage() {
       <p className="fine">Last updated: {site.privacyLastUpdated}</p>
       <p>
         {site.siteName} is a small independent tool. This page explains, in plain English, what happens to what you submit.
-        The short version: <strong>we don&apos;t store what you submit, we don&apos;t use cookies, and we don&apos;t track you.</strong> The companies
-        that host the site keep their own standard records, described below.
+        The short version: <strong>we don&apos;t store what you submit, we don&apos;t use cookies, and we don&apos;t track you across sites or days.</strong>{' '}
+        We count page visits anonymously, and the companies that host the site keep their own standard records, both described below.
       </p>
 
       <h2>What you submit</h2>
@@ -51,9 +51,14 @@ export default function PrivacyPage() {
       {site.passwordRequired ? <p>While the tool is in private testing, an access password is checked with each analysis request. It isn&apos;t stored.</p> : null}
 
       <h2>Cookies, tracking and analytics</h2>
+      <p>This site sets no cookies, and it loads no advertising or third-party trackers.</p>
       <p>
-        This site sets no cookies. It loads no advertising, no third-party trackers, and no analytics. If we add simple visitor counts in the
-        future, they will be cookie-free, and this page will be updated first.
+        To see how many people use the site, we use Vercel Web Analytics, which counts page visits without cookies. For each visit it records
+        which of our pages was viewed (just the page, like the home page or this one), the site that linked you here, your country, and your
+        browser and device type. Instead of a cookie, Vercel tells visits apart using a code calculated from your request, which it discards
+        after 24 hours, so visits can&apos;t be linked across days or to other websites. The text and links you submit for analysis are never
+        part of what&apos;s counted. See{' '}
+        <a href="https://vercel.com/docs/analytics/privacy-policy" {...ext}>Vercel&apos;s analytics privacy details</a>.
       </p>
       <p>If you switch between dark and light mode, your choice is saved in your own browser&apos;s storage so the site remembers it. It is never sent to us.</p>
 

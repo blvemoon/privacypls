@@ -11,6 +11,10 @@ Vercel handles servers, security patches, HTTPS certificates, restarts, scaling,
 
 Vercel dashboard → **Usage**. Hobby has hard limits, and going over one pauses that feature for up to 30 days. The ones that matter here are **Function Invocations** (1,000,000 a month), **Active CPU**, and **Fast Data Transfer**. If anything passes about 70%, check whether traffic is real.
 
+## 2b. Visitors (1 minute)
+
+Vercel dashboard → **Analytics**: page views, top pages, referrers, and countries. Hobby keeps one month of data and includes 50,000 events a month. If you're near that, collection pauses until next month (the site keeps working).
+
 ## 3. Redis usage (1 minute)
 
 Upstash console (or Vercel → Storage → your database) → **Usage**. The free plan includes 500,000 commands and 256 MB a month. An analysis uses about 10 to 15 commands; page views use none. **If Redis runs out, the site refuses analyses** (that's the safe direction), so check this before a public launch.
