@@ -1,6 +1,6 @@
 # Plan: Milestone 1 on Vercel
 
-**Status: waiting for your review. No code has been written for this version yet.**
+**Status: approved Nov 12, 2026, with your change to the retry rules. Built on the `milestone-1-vercel` branch.**
 
 This replaces the earlier server-based plan. Most of the earlier code carries over; what changes is where things are stored and how the site is hosted. Mark up anything you disagree with.
 

@@ -23,7 +23,7 @@
   "scripts": {
     "predev": "node scripts/copy-vendor.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/copy-vendor.mjs",
+    "prebuild": "node scripts/check-rules.mjs && node scripts/copy-vendor.mjs",
     "build": "next build",
     "start": "next start",
     "test": "NODE_ENV=test node --test test/*.test.js",
