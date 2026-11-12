@@ -1,0 +1,37 @@
+{
+  "name": "privacypls",
+  "version": "1.0.0",
+  "description": "Flags potentially concerning language in privacy policies and terms of service.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "test": "NODE_ENV=test node --test test/*.test.js",
+    "usage": "node --env-file-if-exists=.env scripts/usage-report.js",
+    "compare": "node --env-file-if-exists=.env scripts/compare-models.js",
+    "check-rules": "node scripts/check-rules.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blvemoon/privacypls.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/blvemoon/privacypls/issues"
+  },
+  "homepage": "https://github.com/blvemoon/privacypls#readme",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "altcha": "^3.6.0",
+    "altcha-lib": "^2.8.0",
+    "cheerio": "^1.2.0",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "ipaddr.js": "^2.5.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "data-sold-shared",
+      "name": "Data sold or shared",
+      "lookFor": "Language saying personal data may be sold, rented, or shared with third parties, advertisers, or \"partners\"",
+      "severity": "High"
+    },
+    {
+      "id": "vague-purpose",
+      "name": "Vague purpose",
+      "lookFor": "Broad phrases like \"for any business purpose\" or \"to improve our services\" with no specifics",
+      "severity": "Medium"
+    },
+    {
+      "id": "indefinite-retention",
+      "name": "Indefinite retention",
+      "lookFor": "Data kept \"as long as necessary\" or with no stated deletion timeline",
+      "severity": "Medium"
+    },
+    {
+      "id": "sensitive-data",
+      "name": "Sensitive data collection",
+      "lookFor": "Biometric, health, precise location, financial, or children's data, or other personal identifying information",
+      "severity": "High"
+    },
+    {
+      "id": "tracking-profiling",
+      "name": "Tracking and profiling",
+      "lookFor": "Cookies, pixels, fingerprinting, cross-site tracking, or building user profiles",
+      "severity": "Medium",
+      "escalation": {
+        "to": "High",
+        "when": "the text offers no way to opt out of the tracking or profiling"
+      }
+    },
+    {
+      "id": "hard-opt-out",
+      "name": "Hard to opt out or delete",
+      "lookFor": "No clear way to access, delete, or opt out of data collection, or a burdensome process",
+      "severity": "High"
+    },
+    {
+      "id": "one-sided-changes",
+      "name": "One-sided policy changes",
+      "lookFor": "The company can change the policy without notice or consent",
+      "severity": "Medium"
+    },
+    {
+      "id": "ai-training",
+      "name": "AI or model training",
+      "lookFor": "User data or content used to train AI or machine learning models",
+      "severity": "High"
+    },
+    {
+      "id": "cross-border",
+      "name": "Cross-border transfers",
+      "lookFor": "Data sent to other countries without stated safeguards",
+      "severity": "Low"
+    },
+    {
+      "id": "forced-consent",
+      "name": "Forced or bundled consent",
+      "lookFor": "Consent required for unrelated features, or implied by simply using the site",
+      "severity": "Medium"
+    },
+    {
+      "id": "tos-license-only",
+      "name": "ToS: No ownership (license only)",
+      "lookFor": "Purchases of digital goods, software, media, or subscriptions grant only a limited, revocable license rather than ownership, or access can be removed or changed without a refund",
+      "severity": "Medium"
+    },
+    {
+      "id": "tos-arbitration",
+      "name": "ToS: Forced arbitration or class-action waiver",
+      "lookFor": "Disputes must go to private arbitration, or the user gives up the right to sue or join a class action",
+      "severity": "High"
+    },
+    {
+      "id": "tos-content-license",
+      "name": "ToS: Broad license to your content",
+      "lookFor": "The company claims a broad, perpetual, irrevocable, or sublicensable license to content you create or upload",
+      "severity": "High"
+    },
+    {
+      "id": "tos-liability",
+      "name": "ToS: Liability disclaimers",
+      "lookFor": "The company disclaims responsibility for data breaches, losses, or damages, or caps its liability at a trivial amount",
+      "severity": "Medium"
+    },
+    {
+      "id": "tos-auto-renewal",
+      "name": "ToS: Auto-renewal or hard to cancel",
+      "lookFor": "Automatic renewals, hidden fees, no refunds, or a burdensome cancellation process",
+      "severity": "Medium"
+    }
+  ],
+  "goodSigns": [
+    "Explicit deletion within 30 days",
+    "One-click opt-out or unsubscribe"
+  ]
+}
