@@ -116,3 +116,11 @@ test('storage never contains submitted text', async () => {
   const dump = JSON.stringify([...store.data.entries()]);
   assert.ok(!dump.includes('Chatterly') && !dump.includes('sell'));
 });
+
+test('requests only send settings Claude Haiku 5.5 accepts (no temperature)', async () => {
+  const d = makeDeps();
+  await d.analyzer.analyze(sample('04-benign-bakery.txt'));
+  const sent = Object.keys(d.client.calls[0]).sort();
+  assert.deepEqual(sent, ['max_tokens', 'messages', 'model', 'system', 'tool_choice', 'tools']);
+  assert.deepEqual(Object.keys(d.client.counts[0]).sort(), ['messages', 'model', 'system', 'tool_choice', 'tools']);
+});
