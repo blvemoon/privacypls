@@ -83,7 +83,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .theme-toggle:hover { color: var(--text); border-color: var(--muted); }
 
-main { flex: 1; padding-top: 40px; padding-bottom: 56px; }
+main.wrap { flex: 1; padding-top: 40px; padding-bottom: 56px; }
 
 h1 { font-size: 1.85rem; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
 h2 { font-size: 1.3rem; margin: 32px 0 12px; }

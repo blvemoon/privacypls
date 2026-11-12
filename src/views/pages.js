@@ -50,7 +50,7 @@ export function homePage(config) {
     <button type="submit" id="submit" class="primary">Analyze</button>
     <a class="submission-link" href="/privacy">How we handle your submission</a>
   </div>
-  <p class="hint">One analysis every ${esc(minutes)} per visitor. Results take up to a minute.</p>
+  <p class="hint">${config.rateLimitSeconds > 0 ? `One analysis every ${esc(minutes)} per visitor. ` : ''}Results take up to a minute.</p>
   <p class="coming-soon"><span class="badge">Coming soon</span> Deeper analysis with Claude Sonnet, a more capable model.</p>
 </form>
 
@@ -111,7 +111,7 @@ export function privacyPage(config) {
 
 <h2>Rate limiting and bot protection</h2>
 <p>To stop abuse, each visitor can run one analysis every few minutes. To do this, our app turns your IP address into a scrambled code using a secret key that changes every few hours. The code is kept only in the server's memory and is deleted when your waiting period ends. Your IP address itself is not stored by the app.</p>
-<p>Our web server also limits how fast requests can arrive. It tracks visitor addresses in memory for this, and its logs are set up to record no IP addresses and no links you look up.</p>
+<p>Our web server also limits how fast requests can arrive. It tracks visitor addresses in memory for this. Its access logs are set up to record no IP addresses and no links you look up. Rare server error messages can include an IP address; those logs are deleted automatically within 14 days.</p>
 <p>Before each analysis, your browser solves a small puzzle that is hard for bots to do in bulk (this is ALTCHA, which runs entirely on this site; no outside service is contacted). There is also a hidden form field that people never fill in but some bots do.</p>
 ${gate}
 <h2>Cookies, tracking and analytics</h2>

@@ -187,3 +187,22 @@ test('bot check: required when on, single-use, and a solved puzzle passes', asyn
     assert.equal(replay.body.code, 'bot_check', 'the same answer cannot be reused');
   });
 });
+
+test('analyze: two requests at the same moment from one visitor: only one runs', async () => {
+  await withApp({ env: { RATE_LIMIT_SECONDS: '120' } }, async (url, deps) => {
+    const [a, b] = await Promise.all([
+      postJson(`${url}/api/analyze`, { mode: 'text', text: benign }),
+      postJson(`${url}/api/analyze`, { mode: 'text', text: benign }),
+    ]);
+    assert.deepEqual([a.status, b.status].sort(), [200, 429]);
+    assert.equal(deps.client.calls.length, 1);
+  });
+});
+
+test('analyze: an oversized request body gets the friendly "too long" message', async () => {
+  await withApp({}, async (url) => {
+    const res = await postJson(`${url}/api/analyze`, { mode: 'text', text: 'a'.repeat(3 * 1024 * 1024) });
+    assert.equal(res.status, 413);
+    assert.equal(res.body.code, 'too_long');
+  });
+});

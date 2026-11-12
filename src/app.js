@@ -112,6 +112,10 @@ export function createApp({ config, analyzer, budget, usage, rateLimiter, botChe
         throw new UserError('rate_limited', messages.rateLimited(config.rateLimitSeconds), { status: 429, retryAfterSeconds: wait });
       }
       if (budget.isExhausted()) throw new UserError('budget', messages.budget, { status: 503 });
+      // Claim the visitor's slot now, so two requests sent at the same moment
+      // can't both get through. It's released below if anything fails.
+      rateLimiter.mark(visitorId);
+      marked = true;
 
       let text = pastedText;
       let source = { kind: 'text', chars: 0 };
@@ -130,8 +134,6 @@ export function createApp({ config, analyzer, budget, usage, rateLimiter, botChe
       }
       source.chars = text.length;
 
-      rateLimiter.mark(visitorId);
-      marked = true;
       const result = await analyzer.analyze(text);
       usage.countAnalysis();
       log.info('analysis_done', {
@@ -152,10 +154,9 @@ export function createApp({ config, analyzer, budget, usage, rateLimiter, botChe
         parts: result.stats.parts,
       });
     } catch (err) {
-      // If the failure wasn't the visitor's doing, let them try again right away.
-      if (marked && err instanceof UserError && ['ai_unavailable', 'ai_bad_output', 'budget', 'busy'].includes(err.code)) {
-        rateLimiter.unmark(visitorId);
-      }
+      // No result was delivered, so don't make the visitor wait to try again.
+      // (Abuse is still capped by the bot check, Nginx limits, and the budget.)
+      if (marked) rateLimiter.unmark(visitorId);
       if (!(err instanceof UserError)) log.error('analyze_failed', { kind: err && err.name ? err.name : 'Error', message: safeMessage(err) });
       return sendError(res, err);
     } finally {

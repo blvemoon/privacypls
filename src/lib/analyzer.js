@@ -85,7 +85,9 @@ function userMessage(text, part, parts) {
   const intro = parts > 1
     ? `This is part ${part} of ${parts} of one long document. Other parts are analyzed separately. Only flag something being missing (for example, no opt-out) when the quoted text itself shows it, because another part may cover it.\n\n`
     : '';
-  return `${intro}<document>\n${text}\n</document>`;
+  // Neutralize any tag in the text that could end the document block early.
+  const safe = text.replace(/<\s*\/?\s*document\s*>/gi, (m) => m.replace(/</g, '‹').replace(/>/g, '›'));
+  return `${intro}<document>\n${safe}\n</document>`;
 }
 
 // Checks the model's tool input. Returns { summary, flags, dropped } where flags
