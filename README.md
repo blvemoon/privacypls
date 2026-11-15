@@ -99,7 +99,7 @@ Rules live in [`config/rules.json`](config/rules.json). Each rule has:
 
 Every update that changes the site gets a new entry at the **top** of [`config/changelog.json`](config/changelog.json), which the public [/changelog](https://privacypls.io/changelog) page is built from. In the same pull request, set `"version"` in `package.json` to the new number.
 
-- **Version:** fixes and small changes add 1 to the last number (0.0.2 → 0.0.3). A bigger feature or a finished milestone adds 1 to the middle number and resets the last (0.0.3 → 0.1.0). The public release is 1.0.0.
+- **Version:** the site owner gives the version number for each update; if none is given, use a patch release and ask before using a minor or major one. A **patch** release adds 1 to the last number (0.0.2 → 0.0.3). A **minor** release adds 1 to the middle number and resets the last (0.0.3 → 0.1.0). A **major** release adds 1 to the first number and resets the others (0.4.2 → 1.0.0, the public launch). The last number can go past 9 (0.0.10, 0.0.11).
 - **Each entry** has `version`, `date` (YYYY-MM-DD, the day it goes live), `summary` (one line, 80 characters at most, shown on the collapsed row), and `changes`.
 - **`changes`** groups bullets by category. Use only the categories you need: `newFeatures`, `ui`, `qualityOfLife`, `riskScore`, `bugFixes`, `underTheHood`. The page always shows them in that order.
 - Write for visitors, in general terms. Security changes stay vague (for example "Improved protections against automated traffic").
