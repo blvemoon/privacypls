@@ -42,6 +42,7 @@ npm test             # automated tests (no API key needed; Claude is simulated)
 | `npm run usage` | AI usage and cost per day this month, and spending against your limit (reads the live database; setup in DEPLOY.md) |
 | `npm run compare` | Runs the 8 sample texts through **Haiku and Sonnet** with the real API, and prints flags, quotes, misses, over-flags, and cost. Spends real money, counted against the same monthly limit. Options: `-- --haiku`, `-- --only 06` |
 | `npm run check-rules` | Checks `config/rules.json` for mistakes |
+| `npm run check-changelog` | Checks `config/changelog.json` and that `package.json` has the newest version |
 
 ## Settings (environment variables)
 
@@ -94,6 +95,17 @@ Rules live in [`config/rules.json`](config/rules.json). Each rule has:
 
 `goodSigns` lists reassuring language, so the AI doesn't over-flag. Run `npm run check-rules` after editing. The tests and the build also check the file.
 
+## Updating the change log (every update)
+
+Every update that changes the site gets a new entry at the **top** of [`config/changelog.json`](config/changelog.json), which the public [/changelog](https://privacypls.io/changelog) page is built from. In the same pull request, set `"version"` in `package.json` to the new number.
+
+- **Version:** the site owner gives the version number for each update; if none is given, use a patch release and ask before using a minor or major one. A **patch** release adds 1 to the last number (0.0.2 → 0.0.3). A **minor** release adds 1 to the middle number and resets the last (0.0.3 → 0.1.0). A **major** release adds 1 to the first number and resets the others (0.4.2 → 1.0.0, the public launch). The last number can go past 9 (0.0.10, 0.0.11).
+- **Each entry** has `version`, `date` (YYYY-MM-DD, the day it goes live), `summary` (one line, 80 characters at most, shown on the collapsed row), and `changes`.
+- **`changes`** groups bullets by category. Use only the categories you need: `newFeatures`, `ui`, `qualityOfLife`, `riskScore`, `bugFixes`, `underTheHood`. The page always shows them in that order.
+- Write for visitors, in general terms. Security changes stay vague (for example "Improved protections against automated traffic").
+
+The build refuses to publish if the file has a mistake, a version is skipped or repeated, dates go backwards, or `package.json` doesn't match the newest entry. It can't tell whether you forgot an entry altogether, so the pull request checklist is the reminder.
+
 **Overall risk level** (set by code, not the AI): **High** if any High-severity flag has Medium or High confidence. **Medium** if there's any other High or Medium flag, or three or more Low flags. **Low** otherwise.
 
 ## Privacy: what the app keeps
@@ -109,11 +121,11 @@ If you change what the app does, update `app/privacy/page.js` and `PRIVACY_LAST_
 ## Project layout
 
 ```
-app/          Pages (analyzer, privacy, about, feedback) and API routes
+app/          Pages (analyzer, privacy, about, change log, feedback) and API routes
 lib/          The parts: safe fetching, analysis, spending limit, rate limit, bot check, storage
-config/       Rules and prices (edit without touching code)
+config/       Rules, prices, and the change log (edit without touching code)
 samples/      8 sample policies and their expected results
-scripts/      Usage report, model comparison, rules check
+scripts/      Usage report, model comparison, rules and change log checks
 test/         Automated tests
 docs/         Deployment and maintenance guides
 proxy.js      Security policy for every page (Next.js 16 name for "middleware")

@@ -21,7 +21,7 @@ Upstash console (or Vercel → Storage → your database) → **Usage**. The fre
 
 ## 4. Packages and Node.js (5 minutes, or when GitHub alerts you)
 
-Turn on **Dependabot alerts** once: GitHub repo → Settings → Code security → Dependabot alerts. GitHub then emails you when a package needs a security update. When that happens, ask me (or Claude Code) to update it. You'll get a pull request: check its Vercel preview, then merge.
+Turn on **Dependabot alerts** once: GitHub repo → Settings → Code security → Dependabot alerts. GitHub then emails you when a package needs a security update. When that happens, ask me (or Claude Code) to update it. You'll get a pull request: check its Vercel preview, then merge. Package updates count as updates too, so the pull request should add a change log entry (usually one "Under the hood" bullet) and bump the version (see "Updating the change log" in the README). Pull requests opened by Dependabot itself won't have one, so add it before merging.
 
 **Node.js:** Vercel → Settings → General → **Node.js Version**. Keep it on a supported LTS version (22.x or newer). When Vercel announces a deprecation, switch to the newer LTS and redeploy.
 
