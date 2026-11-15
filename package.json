@@ -1,6 +1,6 @@
 {
   "name": "privacypls",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "description": "Flags potentially concerning language in privacy policies and terms of service.",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",
+    "@tabler/icons-react": "^3.52.0",
     "@upstash/redis": "^1.41.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/functions": "^3.11.2",
@@ -24,12 +25,13 @@
   "scripts": {
     "predev": "node scripts/copy-vendor.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/check-rules.mjs && node scripts/copy-vendor.mjs",
+    "prebuild": "node scripts/check-rules.mjs && node scripts/check-changelog.mjs && node scripts/copy-vendor.mjs",
     "build": "next build",
     "start": "next start",
     "test": "NODE_ENV=test node --test test/*.test.js",
     "usage": "node --env-file-if-exists=.env.local scripts/usage-report.mjs",
     "compare": "node --env-file-if-exists=.env.local scripts/compare-models.mjs",
-    "check-rules": "node scripts/check-rules.mjs"
+    "check-rules": "node scripts/check-rules.mjs",
+    "check-changelog": "node scripts/check-changelog.mjs"
   }
 }

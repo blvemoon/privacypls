@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "version": "0.0.2",
+      "date": "2026-11-14",
+      "summary": "Added this change log",
+      "changes": {
+        "newFeatures": [
+          "Added this change log page, linked in the footer next to about."
+        ],
+        "ui": [
+          "Footer links are now all lowercase."
+        ],
+        "underTheHood": [
+          "Every update now comes with a version number and a change log entry, checked automatically before the site is published."
+        ]
+      }
+    },
+    {
+      "version": "0.0.1",
+      "date": "2026-11-12",
+      "summary": "First version of the site",
+      "changes": {
+        "newFeatures": [
+          "First version of privacypls.io."
+        ]
+      }
+    }
+  ]
+}

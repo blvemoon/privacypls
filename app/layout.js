@@ -35,10 +35,12 @@ export default async function RootLayout({ children }) {
         <footer className="site-footer">
           <div className="wrap footer-row">
             <nav aria-label="Footer">
-              <a href="/privacy">Privacy policy</a>
-              <a href="/about">About</a>
-              {site.feedback ? <a href="/feedback">Feedback</a> : null}
-              {site.donationUrl ? <a href={site.donationUrl} target="_blank" rel="noopener noreferrer">Support this project ↗</a> : null}
+              {/* Footer links are always lowercase (also enforced in globals.css). */}
+              <a href="/privacy">privacy policy</a>
+              <a href="/about">about</a>
+              <a href="/changelog">change log</a>
+              {site.feedback ? <a href="/feedback">feedback</a> : null}
+              {site.donationUrl ? <a href={site.donationUrl} target="_blank" rel="noopener noreferrer">support this project ↗</a> : null}
             </nav>
             <p className="fine">Results are AI-generated potential flags, not legal advice.</p>
           </div>
