@@ -45,8 +45,7 @@ export default function BrandPage() {
       <section className="pk-card" aria-labelledby="pk-logo">
         <h2 id="pk-logo">logo</h2>
         <p className="pk-note">
-          The crescent shield. Same shape in dark and light mode; only the color changes. The name is always written in lowercase:
-          privacypls.io.
+          The crescent shield. The name is always written in lowercase: privacypls.io.
         </p>
         <div className="pk-logos">
           <figure className="pk-fig">
