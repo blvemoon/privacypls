@@ -74,8 +74,9 @@ a:hover { text-decoration-thickness: 2px; }
 
 .site-header { border-bottom: 1px solid var(--border); background: var(--surface); }
 .header-row { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.01em; font-size: 1.05rem; }
-.brand-mark { color: var(--accent); margin-right: 4px; }
+.brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.01em; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; }
+.brand-mark { color: var(--accent); flex: none; }
+.logo { display: block; }
 
 .theme-toggle {
   background: transparent; color: var(--muted); border: 1px solid var(--border);
@@ -273,3 +274,48 @@ input:focus, textarea:focus { border-color: var(--accent); }
 .primary:disabled { opacity: 0.6; cursor: not-allowed; }
 .actions .primary { font-variant-numeric: tabular-nums; }
 .results h2:focus { outline: none; }
+
+/* Press kit (/brand). Logo samples and palettes use fixed brand colors, whatever the visitor's theme. */
+.pk h1 { margin-bottom: 12px; }
+.pk h2 { margin: 36px 0 12px; }
+.pk-intro p { max-width: 62ch; }
+.pk-card { border: 2px solid var(--accent); border-radius: 14px; background: var(--surface); padding: 6px 24px 20px; margin-top: 28px; }
+.pk-card h2 { margin-top: 18px; }
+.pk-note { color: var(--muted); font-size: 0.95rem; max-width: 66ch; }
+.pk-logos, .pk-sizes, .pk-headers { display: flex; flex-wrap: wrap; gap: 24px; margin: 20px 0; }
+.pk-logos { justify-content: center; gap: 36px; }
+.pk-sizes { justify-content: center; align-items: flex-end; }
+.pk-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pk-fig figcaption { color: var(--muted); font-size: 0.85rem; text-align: center; }
+.pk-fig-sm { min-width: 96px; }
+.pk-mark-dark { color: #5eead4; }
+.pk-mark-light { color: #0f766e; }
+.logo-holding { fill: var(--bg); }
+.pk-hold-dark { fill: #0b1016; }
+.pk-hold-light { fill: #f6f8fa; }
+.pk-header { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; padding: 14px 16px; border-radius: 8px; font-weight: 700; font-size: 1.05rem; }
+.pk-header-dark { background: #0b1016; color: #e6edf3; border: 1px solid #253242; }
+.pk-header-light { background: #f6f8fa; color: #111a24; border: 1px solid #d4dbe3; }
+.pk-palettes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.pk-palette { border-radius: 12px; padding: 4px 20px 12px; }
+.pk-palette h3 { margin: 14px 0 6px; }
+.pk-palette ul { list-style: none; margin: 0; padding: 0; }
+.pk-palette li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; }
+.pk-palette li + li { border-top: 1px solid currentColor; border-top-color: rgba(127, 127, 127, 0.25); }
+.pk-palette-dark { background: #0b1016; color: #e6edf3; border: 1px solid #253242; }
+.pk-palette-light { background: #f6f8fa; color: #111a24; border: 1px solid #d4dbe3; }
+.pk-swatch { flex: none; width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(127, 127, 127, 0.45); }
+.pk-swatch-5eead4 { background: #5eead4; }
+.pk-swatch-0b1016 { background: #0b1016; }
+.pk-swatch-e6edf3 { background: #e6edf3; }
+.pk-swatch-0f766e { background: #0f766e; }
+.pk-swatch-f6f8fa { background: #f6f8fa; }
+.pk-swatch-111a24 { background: #111a24; }
+.pk-color { display: flex; flex-direction: column; gap: 2px; font-size: 0.92rem; }
+.pk-use { opacity: 0.75; }
+.pk-color code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85rem; }
+.pk-serif { font-family: ui-serif, Georgia, "Times New Roman", serif; }
+.pk-stack {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85rem; white-space: pre-wrap; overflow-wrap: anywhere;
+}

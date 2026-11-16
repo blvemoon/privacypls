@@ -1,6 +1,7 @@
 import { headers } from 'next/headers';
 import { siteConfig } from '../lib/siteConfig.js';
 import SiteAnalytics from './components/SiteAnalytics.js';
+import Logo from './components/Logo.js';
 import './globals.css';
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default async function RootLayout({ children }) {
         <a className="skip" href="#main">Skip to content</a>
         <header className="site-header">
           <div className="wrap header-row">
-            <a className="brand" href="/"><span className="brand-mark" aria-hidden="true">◆</span> {site.siteName}</a>
+            <a className="brand" href="/"><Logo id="header" size={26} className="brand-mark" /> {site.siteName}</a>
             <button type="button" className="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" suppressHydrationWarning>Light mode</button>
           </div>
         </header>
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }) {
               <a href="/privacy">privacy policy</a>
               <a href="/about">about</a>
               <a href="/changelog">change log</a>
+              <a href="/brand">press kit</a>
               {site.feedback ? <a href="/feedback">feedback</a> : null}
               {site.donationUrl ? <a href={site.donationUrl} target="_blank" rel="noopener noreferrer">support this project ↗</a> : null}
             </nav>
