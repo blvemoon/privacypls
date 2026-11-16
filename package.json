@@ -1,6 +1,6 @@
 {
   "name": "privacypls",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
   "description": "Flags potentially concerning language in privacy policies and terms of service.",
